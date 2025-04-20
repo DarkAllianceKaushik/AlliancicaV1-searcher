@@ -3,197 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alliancica V1 Searcher - Your Exploit Script Vault</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono:wght@400&display=swap');
-
-        body {
-            background: #000;
-            color: #ffd700;
-            font-family: 'Orbitron', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        header {
-            padding: 20px;
-            text-align: center;
-            background: linear-gradient(45deg, #000000, #1a1a1a);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-        }
-
-        header h1 {
-            font-size: 2.2em;
-            text-shadow: 0 0 15px #ffd700;
-            animation: glow 3s infinite alternate;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px #ffd700; }
-            100% { text-shadow: 0 0 30px #ffae00; }
-        }
-
-        .search-container {
-            max-width: 600px;
-            margin: 40px auto;
-            text-align: center;
-        }
-
-        .search-container input {
-            width: 70%;
-            padding: 14px;
-            border: none;
-            outline: none;
-            border-radius: 5px 0 0 5px;
-            font-size: 1em;
-            background: #222;
-            color: #ffd700;
-        }
-
-        .search-container button {
-            width: 20%;
-            padding: 14px;
-            border: none;
-            background: #ffd700;
-            color: #000;
-            font-weight: bold;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .search-container button:hover {
-            background: #ffae00;
-        }
-
-        .loading-text {
-            margin: 20px 0;
-            font-size: 1.1em;
-            color: #ffae00;
-            display: none;
-            animation: pulse 1s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
-        .results-container {
-            width: 90%;
-            max-width: 900px;
-            margin: 20px auto;
-            background: rgba(20, 20, 20, 0.7);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .result-item {
-            margin: 15px 0;
-            padding: 15px;
-            background: #111;
-            border: 1px solid #ffd7004a;
-            border-radius: 8px;
-            transition: 0.2s ease-in-out;
-        }
-
-        .result-item:hover {
-            background: #222;
-            transform: translateY(-3px);
-            box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
-        }
-
-        .result-item a {
-            color: #ffd700;
-            text-decoration: none;
-            font-family: 'Roboto Mono', monospace;
-            display: block;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #555;
-            font-size: 0.8em;
-        }
-
-        /* Simple floating background sparkles */
-        .sparkle {
-            position: fixed;
-            top: -20px;
-            width: 2px;
-            height: 2px;
-            background: #ffd700;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(110vh);
-                opacity: 0;
-            }
-        }
-    </style>
+    <meta name="description" content="Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination!">
+    <meta property="og:title" content="Alliancica V1 Searcher - Exploit Script Finder">
+    <meta property="og:description" content="Search across Pastebin & more for the latest Roblox Exploit Scripts.">
+    <title>Alliancica V1 Searcher</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Search for Exploit Pastebin SCRIPTS — Your All-In-One Destination</h1>
-</header>
+    <div class="header">
+        <h1>Alliancica V1 Searcher</h1>
+        <p class="tagline">Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
+    </div>
 
-<div class="search-container">
-    <input type="text" id="searchInput" placeholder="Enter your exploit script keyword...">
-    <button onclick="startSearch()">Search</button>
-    <div class="loading-text" id="loadingText">Your search has started...</div>
-</div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Type your exploit or script keywords...">
+        <button onclick="startSearch()">Search</button>
+        <div class="status" id="statusMessage"></div>
+    </div>
 
-<div class="results-container" id="results"></div>
+    <div class="results-container">
+        <iframe id="searchFrame" src="" frameborder="0"></iframe>
+    </div>
 
-<footer>
-    Alliancica V1 Searcher © 2025 | Made for Explorers of the Digital Abyss.
-</footer>
+    <canvas id="bgEffect"></canvas>
 
-<script>
-    // Sparkles effect — clean and light alternative to matrix rain
-    function spawnSparkles() {
-        for (let i = 0; i < 60; i++) {
-            let s = document.createElement('div');
-            s.className = 'sparkle';
-            s.style.left = Math.random() * 100 + 'vw';
-            s.style.animationDuration = (4 + Math.random() * 6) + 's';
-            document.body.appendChild(s);
-        }
-    }
-
-    spawnSparkles();
-
-    // Mock search function simulating server query
-    function startSearch() {
-        let query = document.getElementById("searchInput").value.trim();
-        let resultsContainer = document.getElementById("results");
-        let loadingText = document.getElementById("loadingText");
-
-        if (!query) return alert("Please enter a search term!");
-
-        resultsContainer.innerHTML = '';
-        loadingText.style.display = "block";
-
-        setTimeout(() => {
-            loadingText.style.display = "none";
-            resultsContainer.innerHTML = `
-                <div class="result-item"><a href="#">[PASTEBIN] Script: ${query} - AutoFarm GUI</a></div>
-                <div class="result-item"><a href="#">[PASTEDROP] Script: ${query} - Unlocker v2.1</a></div>
-                <div class="result-item"><a href="#">[PASTEFS] Script: ${query} - GodMode Patch</a></div>
-                <div class="result-item"><a href="#">[PASTELBIN] Script: ${query} - AutoExec Config</a></div>
-            `;
-        }, 1500);
-    }
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
