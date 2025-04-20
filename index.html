@@ -1,174 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Alliancica V1 Searcher - The Ultimate Exploit Pastebin Script Finder">
   <title>Alliancica V1 Searcher</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;700&display=swap');body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #f8f8f8;
+  font-family: 'Poppins', sans-serif;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      background: radial-gradient(circle at center, #0d0d0d 20%, #050505 100%);
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: #f8f8f8;
-      overflow: hidden;
-    }
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
-    .logo {
-      max-width: 350px;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeIn 1.5s forwards;
-    }
+.glow-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2em;
+  color: #ff0033;
+  text-shadow: 0 0 20px rgba(255,0,0,0.7), 0 0 40px rgba(255,0,0,0.3);
+  margin: 0;
+  animation: fadeIn 2s forwards;
+}
 
-    .glow-text {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.2em;
-      color: #ff0033;
-      text-shadow: 0 0 20px rgba(255,0,0,0.7), 0 0 40px rgba(255,0,0,0.3);
-      margin: 0;
-      opacity: 0;
-      animation: fadeIn 2s forwards 1s;
-    }
+.sub-text {
+  margin-top: 20px;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.95em;
+  animation: fadeIn 2s forwards 1.5s;
+}
 
-    .loading-dots::after {
-      content: '';
-      display: inline-block;
-      width: 1em;
-      text-align: left;
-      animation: ellipsis steps(4, end) 1.5s infinite;
-    }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-    @keyframes ellipsis {
-      0% { content: ''; }
-      25% { content: '.'; }
-      50% { content: '..'; }
-      75% { content: '...'; }
-      100% { content: ''; }
-    }
+header {
+  text-align: center;
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .sub-text {
-      margin-top: 20px;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.95em;
-      opacity: 0;
-      animation: fadeIn 2s forwards 2s;
-    }
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3em;
+  margin: 0;
+  background: linear-gradient(45deg, #ff0033, #ff3355, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255,0,0,0.5);
+  animation: pulse 3s infinite;
+}
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+header p {
+  font-size: 1.2em;
+  margin-top: 15px;
+  background: linear-gradient(45deg, #ff0033, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
 
-    /* Search Area Styling */
-    .search-container {
-      margin: 20px auto;
-      width: 90%;
-      max-width: 1100px;
-      backdrop-filter: blur(15px);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 0 60px rgba(229,9,20,0.3);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-    }
+@keyframes pulse {
+  0%,100% { text-shadow: 0 0 30px rgba(255,0,0,0.5); }
+  50% { text-shadow: 0 0 60px rgba(255,0,0,0.9); }
+}
 
-    .gcse-search {
-      background: transparent;
-      padding: 5px;
-      border-radius: 15px;
-      width: 100%;
-    }
+.search-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1100px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 60px rgba(229,9,20,0.3);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
 
-    header {
-      text-align: center;
-      padding: 20px;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+.gcse-search {
+  background: transparent;
+  padding: 5px;
+  border-radius: 15px;
+  width: 100%;
+}
 
-    header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3em;
-      margin: 0;
-      background: linear-gradient(45deg, #ff0033, #ff3355, #ff0000);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 30px rgba(255,0,0,0.5);
-      animation: pulse 3s infinite;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-top: 15px;
-      background: linear-gradient(45deg, #ff0033, #ffffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-    }
-
-    @keyframes pulse {
-      0%,100% { text-shadow: 0 0 30px rgba(255,0,0,0.5); }
-      50% { text-shadow: 0 0 60px rgba(255,0,0,0.9); }
-    }
-
-    footer {
-      text-align: center;
-      color: rgba(200,200,200,0.3);
-      font-size: 0.8em;
-      margin: 30px 0 10px;
-      display: none;
-    }
+footer {
+  text-align: center;
+  color: rgba(200,200,200,0.3);
+  font-size: 0.8em;
+  margin: 30px 0 10px;
+  display: none;
+}
 
   </style>
 </head>
-<body>
+<body><canvas id="matrixRain"></canvas>
 
-<!-- Loading Screen -->
-<img src="A_2D_digital_graphic_design_features_promotional_b.png" class="logo" alt="Alliancica V1 Logo">
-<h1 class="glow-text">Loading Search Heaven<span class="loading-dots"></span></h1>
-<p class="sub-text">Please wait while we prepare your exploit script results...</p>
-
-<!-- Search UI -->
-<header>
+<h1 class="glow-text">Loading Search Heaven...</h1>
+<p class="sub-text">Please wait while we prepare your exploit script results...</p><header>
   <h1>Alliancica V1 Searcher</h1>
   <p>Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
-</header>
-
-<div class="search-container">
+</header><div class="search-container">
   <div class="loader-text">Your Search Has Started...</div>
   <script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
   <div class="gcse-search"></div>
-</div>
-
-<footer>
+</div><footer>
   © 2025 Alliancica V1 | Made for scripters, by scripters.
-</footer>
+</footer><audio id="startupSound" src="https://cdn.pixabay.com/audio/2023/03/06/audio_c3e31846d7.mp3" preload="auto"></audio>
 
 <script>
-  // After 4 seconds — reveal Search UI and hide loading screen
+  const audio = document.getElementById('startupSound');
   setTimeout(() => {
-    document.querySelector('.logo').style.display = 'none';
+    audio.play();
     document.querySelector('.glow-text').style.display = 'none';
     document.querySelector('.sub-text').style.display = 'none';
-
     document.querySelector('header').style.display = 'flex';
     document.querySelector('.search-container').style.display = 'flex';
     document.querySelector('footer').style.display = 'block';
   }, 4000);
-</script>
 
-</body>
+  const c = document.getElementById("matrixRain");
+  const ctx = c.getContext("2d");
+  c.height = window.innerHeight;
+  c.width = window.innerWidth;
+  const letters = "01".split("");
+  const fontSize = 14;
+  const columns = c.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, c.width, c.height);
+    ctx.fillStyle = "#0F0";
+    ctx.font = fontSize + "px monospace";
+
+    drops.forEach((y, index) => {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      const x = index * fontSize;
+      ctx.fillText(text, x, y * fontSize);
+      drops[index] = y * fontSize > c.height && Math.random() > 0.975 ? 0 : y + 1;
+    });
+  }
+
+  setInterval(draw, 33);
+</script></body>
 </html>
