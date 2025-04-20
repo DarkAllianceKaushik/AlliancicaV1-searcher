@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alliancica V1 - Pastebin Google Searcher">
+  <title>Alliancica V1 Searcher</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #e50914;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    input[type="text"] {
+      padding: 12px;
+      width: 60%;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 1em;
+      background: #1e1e1e;
+      color: #e50914;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #e50914;
+      color: white;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button:hover {
+      background-color: #b0060f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Alliancica V1 Searcher</h1>
+  <input id="query" type="text" placeholder="Search Pastebin...">
+  <button onclick="search()">Search</button>
+
+  <script>
+    function search() {
+      const q = document.getElementById('query').value.trim();
+      if (q) {
+        const googleSearch = `https://www.google.com/search?q=site:pastebin.com+${encodeURIComponent(q)}`;
+        window.open(googleSearch, '_blank');
+      } else {
+        alert("Please enter a search term!");
+      }
+    }
+  </script>
+
+</body>
+</html>
