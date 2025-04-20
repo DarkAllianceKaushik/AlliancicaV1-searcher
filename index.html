@@ -2,74 +2,173 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Alliancica V1 Searcher — The Ultimate Pastebin Script Finder">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alliancica V1 Searcher - The Ultimate Exploit Pastebin Script Finder">
   <title>Alliancica V1 Searcher</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;700&display=swap');
+
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(160deg, #0f0f0f 0%, #1a1a1a 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #e50914;
+      height: 100vh;
+      background: radial-gradient(circle at center, #0d0d0d 20%, #050505 100%);
+      font-family: 'Poppins', sans-serif;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #f8f8f8;
+      overflow: hidden;
+    }
+
+    .logo {
+      max-width: 350px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    .glow-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2em;
+      color: #ff0033;
+      text-shadow: 0 0 20px rgba(255,0,0,0.7), 0 0 40px rgba(255,0,0,0.3);
+      margin: 0;
+      opacity: 0;
+      animation: fadeIn 2s forwards 1s;
+    }
+
+    .loading-dots::after {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      text-align: left;
+      animation: ellipsis steps(4, end) 1.5s infinite;
+    }
+
+    @keyframes ellipsis {
+      0% { content: ''; }
+      25% { content: '.'; }
+      50% { content: '..'; }
+      75% { content: '...'; }
+      100% { content: ''; }
+    }
+
+    .sub-text {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.95em;
+      opacity: 0;
+      animation: fadeIn 2s forwards 2s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Search Area Styling */
+    .search-container {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1100px;
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 60px rgba(229,9,20,0.3);
+      display: none;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
+    }
+
+    .gcse-search {
+      background: transparent;
+      padding: 5px;
+      border-radius: 15px;
+      width: 100%;
     }
 
     header {
       text-align: center;
-      padding: 40px 20px 20px 20px;
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     header h1 {
-      font-size: 2.5em;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
       margin: 0;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 8px rgba(229, 9, 20, 0.4);
-      color: #e50914;
+      background: linear-gradient(45deg, #ff0033, #ff3355, #ff0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(255,0,0,0.5);
+      animation: pulse 3s infinite;
     }
 
     header p {
       font-size: 1.2em;
-      color: #f5f5f5;
       margin-top: 15px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      background: linear-gradient(45deg, #ff0033, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
     }
 
-    .gcse-search {
-      margin: 30px auto;
-      width: 90%;
-      max-width: 1200px;
-      background: rgba(0,0,0,0.2);
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(229,9,20,0.2);
+    @keyframes pulse {
+      0%,100% { text-shadow: 0 0 30px rgba(255,0,0,0.5); }
+      50% { text-shadow: 0 0 60px rgba(255,0,0,0.9); }
     }
 
     footer {
-      color: #444;
-      font-size: 0.8em;
-      padding: 10px;
       text-align: center;
+      color: rgba(200,200,200,0.3);
+      font-size: 0.8em;
+      margin: 30px 0 10px;
+      display: none;
     }
+
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Alliancica V1 Searcher</h1>
-    <p>Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
-  </header>
+<!-- Loading Screen -->
+<img src="A_2D_digital_graphic_design_features_promotional_b.png" class="logo" alt="Alliancica V1 Logo">
+<h1 class="glow-text">Loading Search Heaven<span class="loading-dots"></span></h1>
+<p class="sub-text">Please wait while we prepare your exploit script results...</p>
 
-  <!-- Google Programmable Search Engine Code -->
+<!-- Search UI -->
+<header>
+  <h1>Alliancica V1 Searcher</h1>
+  <p>Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
+</header>
+
+<div class="search-container">
+  <div class="loader-text">Your Search Has Started...</div>
   <script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
   <div class="gcse-search"></div>
+</div>
 
-  <footer>
-    © 2025 Alliancica V1 | Crafted for script hunters.
-  </footer>
+<footer>
+  © 2025 Alliancica V1 | Made for scripters, by scripters.
+</footer>
+
+<script>
+  // After 4 seconds — reveal Search UI and hide loading screen
+  setTimeout(() => {
+    document.querySelector('.logo').style.display = 'none';
+    document.querySelector('.glow-text').style.display = 'none';
+    document.querySelector('.sub-text').style.display = 'none';
+
+    document.querySelector('header').style.display = 'flex';
+    document.querySelector('.search-container').style.display = 'flex';
+    document.querySelector('footer').style.display = 'block';
+  }, 4000);
+</script>
 
 </body>
 </html>
