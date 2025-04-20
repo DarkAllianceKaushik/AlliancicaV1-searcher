@@ -1,33 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination!">
-    <meta property="og:title" content="Alliancica V1 Searcher - Exploit Script Finder">
-    <meta property="og:description" content="Search across Pastebin & more for the latest Roblox Exploit Scripts.">
     <title>Alliancica V1 Searcher</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body><h1>Alliancica V1 Searcher</h1>
+<p>Search for Exploit Pastebin SCRIPTS — Your All-In-One Destination</p>
 
-    <div class="header">
-        <h1>Alliancica V1 Searcher</h1>
-        <p class="tagline">Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
-    </div>
+<div class="results-container" id="results">
+    <div class="spinner" id="spinner"></div>
+    <div class="gcse-search"></div>
+</div>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Type your exploit or script keywords...">
-        <button onclick="startSearch()">Search</button>
-        <div class="status" id="statusMessage"></div>
-    </div>
+<script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
+<script src="script.js"></script>
 
-    <div class="results-container">
-        <iframe id="searchFrame" src="" frameborder="0"></iframe>
-    </div>
-
-    <canvas id="bgEffect"></canvas>
-
-    <script src="script.js"></script>
 </body>
 </html>
