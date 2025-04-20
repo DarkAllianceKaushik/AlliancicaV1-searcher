@@ -26,7 +26,7 @@ p {
     font-size: 1.2rem;
 }
 
-.button-container button, .extras button {
+.button-container button {
     background: linear-gradient(145deg, #ff4747, #ff1f1f);
     border: none;
     padding: 15px 25px;
@@ -40,7 +40,7 @@ p {
     font-size: 1.2rem;
 }
 
-.button-container button:hover, .extras button:hover {
+.button-container button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 35px rgba(255, 0, 0, 0.9);
     background: linear-gradient(145deg, #ff7676, #ff4747);
@@ -78,11 +78,7 @@ p {
     display: none;
 }
 
-.extras {
-    margin-top: 30px;
-}
-
-h1, .button-container, .extras {
+h1, .button-container {
     transition: all 0.4s ease-in-out;
 }
 
