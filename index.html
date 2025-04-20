@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Alliancica V1 Searcher - The Ultimate Exploit Pastebin Script Finder">
   <title>Alliancica V1 Searcher</title>
   <style>
@@ -15,7 +15,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #f8f8f8;
+  color: #FFD700;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -31,15 +31,15 @@ canvas {
 .glow-text {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.2em;
-  color: #ff0033;
-  text-shadow: 0 0 20px rgba(255,0,0,0.7), 0 0 40px rgba(255,0,0,0.3);
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.3);
   margin: 0;
   animation: fadeIn 2s forwards;
 }
 
 .sub-text {
   margin-top: 20px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 215, 0, 0.4);
   font-size: 0.95em;
   animation: fadeIn 2s forwards 1.5s;
 }
@@ -61,67 +61,70 @@ header h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3em;
   margin: 0;
-  background: linear-gradient(45deg, #ff0033, #ff3355, #ff0000);
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255,0,0,0.5);
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
   animation: pulse 3s infinite;
 }
 
 header p {
   font-size: 1.2em;
   margin-top: 15px;
-  background: linear-gradient(45deg, #ff0033, #ffffff);
+  background: linear-gradient(45deg, #FFD700, #FFFFFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
 @keyframes pulse {
-  0%,100% { text-shadow: 0 0 30px rgba(255,0,0,0.5); }
-  50% { text-shadow: 0 0 60px rgba(255,0,0,0.9); }
+  0%,100% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+  50% { text-shadow: 0 0 60px rgba(255, 215, 0, 0.9); }
 }
 
 .search-container {
   margin: 20px auto;
   width: 95%;
   max-width: 1400px;
-  min-height: 60vh;
+  min-height: 70vh;
   backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255,215,0,0.1);
   border-radius: 20px;
   padding: 40px 20px;
-  box-shadow: 0 0 80px rgba(229,9,20,0.3);
+  box-shadow: 0 0 80px rgba(255, 215, 0, 0.3);
   display: none;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-container:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 120px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 120px rgba(255, 215, 0, 0.6);
 }
 
-.gcse-search {
-  background: transparent;
-  padding: 10px;
-  border-radius: 15px;
+iframe {
+  border: none;
   width: 100%;
-  min-height: 400px;
+  height: 70vh;
+  border-radius: 15px;
+  background: rgba(0,0,0,0.85);
+  box-shadow: 0 0 40px rgba(255,215,0,0.2);
+  animation: fadeIn 1s ease forwards;
 }
 
 .loader-text {
   font-size: 1.2em;
-  color: #ff0033;
+  color: #FFD700;
   margin-bottom: 20px;
   animation: pulse 1.8s infinite;
 }
 
 footer {
   text-align: center;
-  color: rgba(200,200,200,0.3);
+  color: rgba(255, 215, 0, 0.3);
   font-size: 0.8em;
   margin: 30px 0 10px;
   display: none;
@@ -137,8 +140,7 @@ footer {
   <p>Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
 </header><div class="search-container">
   <div class="loader-text">Your Search Has Started...</div>
-  <script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
-  <div class="gcse-search"></div>
+  <iframe src="https://cse.google.com/cse?cx=82a2fca84a36846bd"></iframe>
 </div><footer>
   © 2025 Alliancica V1 | Made for scripters, by scripters.
 </footer><audio id="startupSound" src="https://cdn.pixabay.com/audio/2023/03/06/audio_c3e31846d7.mp3" preload="auto"></audio>
@@ -166,7 +168,7 @@ footer {
   function draw() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, c.width, c.height);
-    ctx.fillStyle = "#0F0";
+    ctx.fillStyle = "#FFD700";
     ctx.font = fontSize + "px monospace";
 
     drops.forEach((y, index) => {
