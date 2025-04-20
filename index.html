@@ -28,6 +28,7 @@
       margin: 0;
       letter-spacing: 2px;
       text-shadow: 2px 2px 8px rgba(229, 9, 20, 0.4);
+      color: #e50914;
     }
 
     header p {
@@ -37,76 +38,14 @@
       text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
 
-    #search-container {
-      margin: 20px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    input[type="text"] {
-      padding: 14px;
-      width: 60%;
-      max-width: 600px;
-      border: 2px solid #e50914;
-      border-radius: 8px;
-      background: #1e1e1e;
-      color: #e50914;
-      font-size: 1em;
-      outline: none;
-      margin: 8px;
-      box-shadow: 0 0 12px rgba(229,9,20,0.2);
-      transition: 0.3s ease;
-    }
-
-    input[type="text"]:focus {
-      box-shadow: 0 0 20px rgba(229,9,20,0.5);
-    }
-
-    button {
-      padding: 14px 25px;
-      border: none;
-      border-radius: 8px;
-      background-color: #e50914;
-      color: white;
-      cursor: pointer;
-      font-size: 1em;
-      margin: 8px;
-      box-shadow: 0 0 12px rgba(229,9,20,0.3);
-      transition: background 0.3s ease, transform 0.1s ease;
-    }
-
-    button:hover {
-      background-color: #b0060f;
-      transform: translateY(-1px);
-    }
-
-    #status {
-      text-align: center;
-      margin: 15px;
-      padding: 8px 16px;
-      display: none;
-      border: 1px solid #e50914;
-      background: rgba(229, 9, 20, 0.1);
-      border-radius: 5px;
-      font-size: 1em;
-      animation: blink 1.2s infinite alternate;
-    }
-
-    @keyframes blink {
-      from { opacity: 0.4; }
-      to { opacity: 1; }
-    }
-
-    iframe {
-      width: 95%;
-      max-width: 1400px;
-      height: 80vh;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    .gcse-search {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 1200px;
+      background: rgba(0,0,0,0.2);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(229,9,20,0.2);
     }
 
     footer {
@@ -115,7 +54,6 @@
       padding: 10px;
       text-align: center;
     }
-
   </style>
 </head>
 <body>
@@ -125,51 +63,13 @@
     <p>Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
   </header>
 
-  <div id="status">Your search has started...</div>
-
-  <div id="search-container">
-    <input id="query" type="text" placeholder="Enter keywords for Pastebin exploits..." />
-    <button onclick="search()">Search</button>
-  </div>
-
-  <iframe id="resultsFrame"></iframe>
+  <!-- Google Programmable Search Engine Code -->
+  <script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
+  <div class="gcse-search"></div>
 
   <footer>
     © 2025 Alliancica V1 | Crafted for script hunters.
   </footer>
-
-  <script>
-    function search() {
-      const query = document.getElementById('query').value.trim();
-      const status = document.getElementById('status');
-      const frame = document.getElementById('resultsFrame');
-
-      if (query === '') {
-        status.style.display = 'block';
-        status.textContent = 'Please enter a search term!';
-        frame.src = '';
-        return;
-      }
-
-      status.style.display = 'block';
-      status.textContent = 'Your search has started...';
-
-      const sites = [
-        'pastebin.com', 'hastebin.com', 'paste.ee', 'privatebin.info', 'rentry.co',
-        'textbin.net', 'jsbin.com', 'pasted.co', 'controlc.com', '0bin.net',
-        'dpaste.org', 'pastefs.com', 'paste2.org', 'paste4btc.com', 'justpaste.it',
-        'snipplr.com', 'ghostbin.com', 'termbin.com', 'paste.ofcode.org', 'codepad.org',
-        'pastebin.pl', 'pastebin.fr', 'pastebin.ca', 'pastebin.it', 'pastebin.de',
-        'pastebin.ru', 'pastebin.com.br', 'pastebin.in', 'pastebin.kr', 'pastebin.co.uk',
-        'pastebin.jp', 'pastebin.cn', 'pastebin.es', 'pastebin.mx', 'pastebin.au'
-      ];
-
-      const siteQuery = sites.map(site => `site:${site}`).join(' OR ');
-      const searchURL = `https://www.google.com/search?q=${encodeURIComponent(siteQuery + ' ' + query)}`;
-
-      frame.src = searchURL;
-    }
-  </script>
 
 </body>
 </html>
