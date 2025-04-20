@@ -1,86 +1,62 @@
+/* === Base Theme === */
 body {
-    margin: 0;
-    background: #000000;
+    background-color: #000;
+    color: #ff3333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: gold;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+    margin: 0;
 }
 
-.header {
-    text-align: center;
-    padding: 30px 20px 10px;
+h1 {
+    font-size: 2.5rem;
+    color: #ff3333;
+    text-shadow: 0 0 20px #ff3333;
+    margin-bottom: 10px;
 }
 
-.header h1 {
-    font-size: 3em;
-    background: linear-gradient(90deg, gold, #ff9900, gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glow 3s ease-in-out infinite;
+p {
+    color: #ff4d4d;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
 }
 
-@keyframes glow {
-    0%,100% { text-shadow: 0 0 10px gold; }
-    50% { text-shadow: 0 0 30px #ff9900; }
-}
-
-.tagline {
-    font-size: 1.2em;
-    color: #FFD700;
-    margin: 10px 0 20px;
-}
-
-.search-container {
-    text-align: center;
-}
-
-.search-container input {
-    padding: 12px 15px;
-    width: 50%;
-    border: 2px solid gold;
-    background: #1a1a1a;
-    color: white;
-    border-radius: 8px;
-}
-
-.search-container button {
-    background: gold;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: 0.3s;
-}
-
-.search-container button:hover {
-    background: #ff9900;
-}
-
-.status {
-    margin: 15px 0;
-    font-size: 1.2em;
-    color: #FFCC00;
-}
-
+/* === Results Container === */
 .results-container {
-    margin: 20px auto;
-    width: 90%;
-    height: 70vh;
-}
-
-iframe {
     width: 100%;
-    height: 100%;
-    background: transparent;
-    border: 2px solid gold;
-    border-radius: 12px;
+    max-width: 900px;
+    background: rgba(255, 51, 51, 0.05);
+    border: 2px solid #ff3333;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
 }
 
-canvas#bgEffect {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+/* === Spinner === */
+.spinner {
+    border: 6px solid rgba(255, 51, 51, 0.1);
+    border-top: 6px solid #ff3333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    z-index: 10;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loaded .spinner {
+    display: none;
 }
