@@ -1,149 +1,190 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Alliancica V1 Searcher - The Ultimate Exploit Pastebin Script Finder">
-  <title>Alliancica V1 Searcher</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;700&display=swap');body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: #000;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #FFD700;
-  font-family: 'Poppins', sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search for Exploit Pastebin SCRIPTS — Your all-in-one destination.">
+    <title>Alliancica V1 Searcher</title>
+    <script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #FFD700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }h1 {
+        font-size: 3em;
+        margin: 30px 0 10px;
+        color: #FFD700;
+        text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+        animation: fadeInDown 2s ease forwards;
+    }
 
-.glow-text {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5em;
-  color: #FFD700;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
-  margin: 0;
-  animation: fadeIn 2s forwards;
-}
+    p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        color: rgba(255, 215, 0, 0.9);
+        animation: fadeInDown 2s ease forwards;
+    }
 
-.sub-text {
-  margin-top: 20px;
-  color: rgba(255, 215, 0, 0.4);
-  font-size: 1em;
-  animation: fadeIn 2s forwards 1.5s;
-}
+    .gcse-search {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+        animation: fadeInUp 2s ease forwards;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    /* Google Search Custom Styles */
+    .gsc-control-cse {
+        background: #000 !important;
+        color: #FFD700 !important;
+        border: none !important;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
 
-header {
-  text-align: center;
-  padding: 20px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
+    input.gsc-input {
+        background: #111 !important;
+        color: #FFD700 !important;
+        border: 1px solid rgba(255, 215, 0, 0.3) !important;
+        border-radius: 5px !important;
+    }
 
-header h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3em;
-  margin: 0;
-  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-  animation: pulse 3s infinite;
-}
+    input.gsc-search-button {
+        background: #FFD700 !important;
+        color: #000 !important;
+        border-radius: 5px;
+        border: none;
+        padding: 8px 14px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
 
-header p {
-  font-size: 1.2em;
-  margin-top: 15px;
-  background: linear-gradient(45deg, #FFD700, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-}
+    input.gsc-search-button:hover {
+        transform: scale(1.1);
+        background: #e6c200 !important;
+    }
 
-@keyframes pulse {
-  0%,100% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
-  50% { text-shadow: 0 0 60px rgba(255, 215, 0, 0.9); }
-}
+    .gsc-webResult .gsc-result {
+        background: #111 !important;
+        border: 1px solid rgba(255, 215, 0, 0.3) !important;
+        padding: 15px !important;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.search-container {
-  margin: 20px auto;
-  width: 95%;
-  max-width: 1400px;
-  min-height: 70vh;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 215, 0, 0.05);
-  border: 1px solid rgba(255,215,0,0.1);
-  border-radius: 20px;
-  padding: 40px 20px;
-  box-shadow: 0 0 80px rgba(255, 215, 0, 0.3);
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .gsc-webResult .gsc-result:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
 
-.search-container:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 120px rgba(255, 215, 0, 0.6);
-}
+    .gsc-webResult .gs-snippet, 
+    .gsc-webResult .gs-title, 
+    .gs-visibleUrl {
+        color: #FFD700 !important;
+    }
 
-iframe {
-  border: none;
-  width: 100%;
-  height: 70vh;
-  border-radius: 15px;
-  background: #000;
-  box-shadow: 0 0 40px rgba(255,215,0,0.2);
-  animation: fadeIn 1s ease forwards;
-  filter: invert(1) hue-rotate(180deg);
-}
+    .search-status {
+        display: none;
+        background: rgba(255, 215, 0, 0.1);
+        padding: 8px 15px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        border-radius: 5px;
+        margin-bottom: 15px;
+        animation: fadeIn 0.3s ease-in-out;
+    }
 
-.loader-text {
-  font-size: 1.2em;
-  color: #FFD700;
-  margin-bottom: 20px;
-  animation: pulse 1.8s infinite;
-}
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
 
-footer {
-  text-align: center;
-  color: rgba(255, 215, 0, 0.3);
-  font-size: 0.8em;
-  margin: 30px 0 10px;
-  display: none;
-}
+    @keyframes fadeInDown {
+        0% {opacity: 0; transform: translateY(-20px);}
+        100% {opacity: 1; transform: translateY(0);}
+    }
 
-  </style>
+    @keyframes fadeInUp {
+        0% {opacity: 0; transform: translateY(20px);}
+        100% {opacity: 1; transform: translateY(0);}
+    }
+
+    .particles {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .particle {
+        position: absolute;
+        background: rgba(255, 215, 0, 0.8);
+        border-radius: 50%;
+        width: 6px;
+        height: 6px;
+        opacity: 0;
+        animation: floatUp 10s infinite ease-in;
+    }
+
+    @keyframes floatUp {
+        0% {transform: translateY(100vh); opacity: 0;}
+        20% {opacity: 1;}
+        100% {transform: translateY(-10vh); opacity: 0;}
+    }
+
+</style>
+
 </head>
-<body><h1 class="glow-text">Loading Search Heaven...</h1>
-<p class="sub-text">Please wait while we prepare your exploit script results...</p><header>
-  <h1>Alliancica V1 Searcher</h1>
-  <p>Search for Exploit Pastebin SCRIPTS — Your All-in-One Destination</p>
-</header><div class="search-container">
-  <div class="loader-text">Your Search Has Started...</div>
-  <iframe src="https://cse.google.com/cse?cx=82a2fca84a36846bd"></iframe>
-</div><footer>
-  © 2025 Alliancica V1 | Made for scripters, by scripters.
-</footer><audio id="startupSound" src="https://cdn.pixabay.com/audio/2023/03/06/audio_c3e31846d7.mp3" preload="auto"></audio>
+<body>
+    <div class="particles" id="particles"></div><h1>Alliancica V1 Searcher</h1>
+<p>Search for Exploit Pastebin SCRIPTS — Your all-in-one destination!</p>
+
+<div class="search-status" id="searchStatus">Your search has started...</div>
+<div class="gcse-search"></div>
+
+<audio id="startupSound" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg"></audio>
 
 <script>
-  const audio = document.getElementById('startupSound');
-  setTimeout(() => {
-    audio.play();
-    document.querySelector('.glow-text').style.display = 'none';
-    document.querySelector('.sub-text').style.display = 'none';
-    document.querySelector('header').style.display = 'flex';
-    document.querySelector('.search-container').style.display = 'flex';
-    document.querySelector('footer').style.display = 'block';
-  }, 4000);
-</script></body>
+    // Startup sound
+    window.onload = function() {
+        document.getElementById('startupSound').play().catch(() => {});
+    };
+
+    // Particle generator
+    const container = document.getElementById("particles");
+    for(let i = 0; i < 70; i++){
+        let particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.left = Math.random() * 100 + "vw";
+        particle.style.animationDuration = (5 + Math.random() * 10) + "s";
+        container.appendChild(particle);
+    }
+
+    // Show status when a search starts
+    const observer = new MutationObserver(() => {
+        const status = document.getElementById('searchStatus');
+        status.style.display = 'block';
+    });
+
+    const checkForSearchBox = setInterval(() => {
+        const searchBox = document.querySelector('.gsc-input');
+        if (searchBox) {
+            clearInterval(checkForSearchBox);
+            observer.observe(document.querySelector('.gsc-results-wrapper-visible'), { childList: true, subtree: true });
+        }
+    }, 500);
+</script>
+
+</body>
 </html>
