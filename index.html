@@ -1,34 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alliancica V1 Searcher</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pastebin Search Engine | Alliancica V1</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="background"></div>
+  <div class="background-anim"></div>  <div class="container">
+    <h1 class="site-title">Alliancica V1 Searcher</h1>
+    <p class="site-sub">Search Pastebin Scripts with Style</p><div class="search-wrapper">
+  <input type="text" id="searchInput" placeholder="Type to search Pastebin...">
+  <button id="searchButton">Search</button>
+</div>
 
-  <div class="overlay-clock">
-    <div class="clock-circle"></div>
-    <div class="clock-hand hour"></div>
-    <div class="clock-hand minute"></div>
-    <div class="clock-hand second"></div>
-  </div>
+<div id="loader" class="loader hidden"></div>
+<div id="results" class="results-grid"></div>
+<div id="noResults" class="no-results hidden">No results found.</div>
 
-  <div class="site-title">Alliancica V1 Searcher</div>
-  <div class="site-sub">Search for Exploit Pastebin SCRIPTS | Your All-In-One Destination</div>
-
-  <div id="searchBox">
-    <script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
-    <div class="gcse-search"></div>
-  </div>
-
-  <div class="action-buttons">
-    <a href="https://youtube.com/@darkalliancekaushik" class="btn">Subscribe for a Cookie</a>
-    <a href="https://discord.gg/xxVDjYDEDZ" class="btn">Join Our Discord</a>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+  </div>  <script src="script.js"></script></body>
 </html>
