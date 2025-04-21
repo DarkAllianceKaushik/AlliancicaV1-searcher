@@ -6,31 +6,34 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Make the GIF full-screen */
+/* Make the GIF full-screen background, cropped and centered */
 .gif-background {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    opacity: 0.4;
+    z-index: 0;
 }
 
 .tenor-gif-embed {
-    width: 100%;
-    height: 100%;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
     pointer-events: none;
 }
 
-/* Overlay Content Above GIF */
+/* Overlay content on top of GIF */
 .overlay-content {
     position: relative;
     z-index: 10;
     text-align: center;
     color: #ff4747;
     padding: 20px;
+    backdrop-filter: blur(2px);
 }
 
 h1 {
@@ -61,7 +64,6 @@ p {
 .button-container button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 35px rgba(255, 0, 0, 0.9);
-    background: linear-gradient(145deg, #ff7676, #ff4747);
 }
 
 .results-container {
