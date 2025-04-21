@@ -1,22 +1,37 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pastebin Search Engine | Alliancica V1</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alliancica V1 Searcher | Pastebin Script Finder</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="background-anim"></div>  <div class="container">
-    <h1 class="site-title">Alliancica V1 Searcher</h1>
-    <p class="site-sub">Search Pastebin Scripts with Style</p><div class="search-wrapper">
-  <input type="text" id="searchInput" placeholder="Type to search Pastebin...">
-  <button id="searchButton">Search</button>
-</div>
+    <div class="overlay"></div><header>
+    <h1>Alliancica V1 Searcher</h1>
+    <p>Your All-In-One Destination for Exploit Pastebin Scripts</p>
+</header>
 
-<div id="loader" class="loader hidden"></div>
-<div id="results" class="results-grid"></div>
-<div id="noResults" class="no-results hidden">No results found.</div>
+<section class="search-section">
+    <input type="text" id="searchInput" placeholder="Search for Pastebin Scripts...">
+    <button id="searchBtn">Search</button>
+</section>
 
-  </div>  <script src="script.js"></script></body>
+<section id="loading" class="loading-hidden">
+    <div class="spinner"></div>
+    <p>Fetching the juiciest results...</p>
+</section>
+
+<section id="resultsSection">
+    <!-- Dynamic results will be appended here -->
+</section>
+
+<section class="subscribe-section">
+    <a href="https://youtube.com/@darkalliancekaushik" class="btn-subscribe" target="_blank">Subscribe to Dark Alliance for a Cookie!</a>
+    <a href="https://discord.gg/xxVDjYDEDZ" class="btn-discord" target="_blank">Join the Dark Alliance Discord</a>
+</section>
+
+<script src="script.js"></script>
+
+</body>
 </html>
