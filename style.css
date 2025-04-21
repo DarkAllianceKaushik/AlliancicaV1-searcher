@@ -4,9 +4,9 @@ body {
     height: 100vh;
     overflow-x: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: black;
 }
 
-/* Make the GIF full-screen background, cropped and centered */
 .gif-background {
     position: fixed;
     top: 0;
@@ -26,7 +26,6 @@ body {
     pointer-events: none;
 }
 
-/* Overlay content on top of GIF */
 .overlay-content {
     position: relative;
     z-index: 10;
@@ -89,4 +88,52 @@ p {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Kurumi Clock Overlays */
+.clock-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border: 8px dashed rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    animation: rotate 60s linear infinite;
+    opacity: 0.2;
+}
+
+.clock.small {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 70%;
+    animation: rotateReverse 45s linear infinite;
+}
+
+.clock.medium {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 10%;
+    animation: rotate 90s linear infinite;
+}
+
+.clock:nth-child(1) { top: 40%; left: 40%; }
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
 }
