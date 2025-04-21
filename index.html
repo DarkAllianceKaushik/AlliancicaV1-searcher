@@ -1,46 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alliancica V1 Searcher</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alliancica V1 Searcher</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="background"></div>
 
-    <!-- Background GIF -->
-    <div class="gif-background">
-        <div class="tenor-gif-embed" data-postid="12055660278556005667" data-share-method="host" data-aspect-ratio="1.76596" data-width="100%">
-            <a href="https://tenor.com/view/kurumi-gif-12055660278556005667">Kurumi GIF</a> from 
-            <a href="https://tenor.com/search/kurumi-gifs">Kurumi GIFs</a>
-        </div>
-    </div>
+  <div class="overlay-clock">
+    <div class="clock-circle"></div>
+    <div class="clock-hand hour"></div>
+    <div class="clock-hand minute"></div>
+    <div class="clock-hand second"></div>
+  </div>
 
-    <!-- Clock Overlays -->
-    <div class="clock-overlay">
-        <div class="clock"></div>
-        <div class="clock small"></div>
-        <div class="clock medium"></div>
-    </div>
+  <div class="site-title">Alliancica V1 Searcher</div>
+  <div class="site-sub">Search for Exploit Pastebin SCRIPTS | Your All-In-One Destination</div>
 
-    <!-- Content -->
-    <div class="overlay-content">
-        <h1>Alliancica V1 Searcher</h1>
-        <p>Your all-in-one destination for Exploit Pastebin Scripts!</p>
-
-        <div class="button-container">
-            <button onclick="window.location.href='https://youtube.com/@darkalliancekaushik'">Subscribe to Dark Alliance for a Cookie 🍪</button>
-            <button onclick="window.location.href='https://discord.gg/xxVDjYDEDZ'">Join the Dark Alliance Discord</button>
-        </div>
-
-        <div class="results-container" id="results">
-            <div class="spinner" id="spinner"></div>
-            <div class="gcse-search"></div>
-        </div>
-    </div>
-
+  <div id="searchBox">
     <script async src="https://cse.google.com/cse.js?cx=82a2fca84a36846bd"></script>
-    <script src="script.js"></script>
-    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <div class="gcse-search"></div>
+  </div>
+
+  <div class="action-buttons">
+    <a href="https://youtube.com/@darkalliancekaushik" class="btn">Subscribe for a Cookie</a>
+    <a href="https://discord.gg/xxVDjYDEDZ" class="btn">Join Our Discord</a>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
