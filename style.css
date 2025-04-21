@@ -1,139 +1,97 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow-x: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: black;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: #000;
+  color: white;
 }
 
-.gif-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
+#background {
+  background: url('https://media.tenor.com/kik8uo2XDpEAAAAC/kurumi.gif') no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
 }
 
-.tenor-gif-embed {
-    width: 100vw !important;
-    height: 100vh !important;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    pointer-events: none;
+.site-title {
+  text-align: center;
+  font-size: 2.8em;
+  margin-top: 1.5em;
+  color: #ff0000;
+  text-shadow: 0 0 15px rgba(255,0,0,0.7);
 }
 
-.overlay-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    color: #ff4747;
-    padding: 20px;
-    backdrop-filter: blur(2px);
+.site-sub {
+  text-align: center;
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 0 0 25px #ff4747;
+#searchBox {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 15px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px #ff0000;
 }
 
-p {
-    font-size: 1.2rem;
-    text-shadow: 0 0 10px #000;
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
 }
 
-.button-container button {
-    background: linear-gradient(145deg, #ff4747, #ff1f1f);
-    border: none;
-    padding: 15px 25px;
-    margin: 10px;
-    color: black;
-    border-radius: 12px;
-    font-weight: bold;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-size: 1.2rem;
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #ff0000;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.button-container button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 35px rgba(255, 0, 0, 0.9);
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff0000;
 }
 
-.results-container {
-    margin: 30px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #ff4747;
-    border-radius: 20px;
-    max-width: 1000px;
-    color: white;
+/* Clock Overlay Style */
+.overlay-clock {
+  position: fixed;
+  top: 5%; right: 5%;
+  width: 150px; height: 150px;
+  z-index: 0;
 }
 
-.spinner {
-    border: 6px solid rgba(255, 0, 0, 0.3);
-    border-top: 6px solid #ff4747;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
+.clock-circle {
+  width: 100%; height: 100%;
+  border: 3px solid #ff0000;
+  border-radius: 50%;
+  position: relative;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.clock-hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  background: #ff0000;
 }
 
-/* Kurumi Clock Overlays */
-.clock-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    overflow: hidden;
-    z-index: 5;
-    pointer-events: none;
+.clock-hand.hour {
+  height: 35px; width: 4px;
 }
-
-.clock {
-    width: 300px;
-    height: 300px;
-    border: 8px dashed rgba(255, 0, 0, 0.5);
-    border-radius: 50%;
-    position: absolute;
-    animation: rotate 60s linear infinite;
-    opacity: 0.2;
+.clock-hand.minute {
+  height: 50px; width: 3px;
 }
-
-.clock.small {
-    width: 150px;
-    height: 150px;
-    top: 20%;
-    left: 70%;
-    animation: rotateReverse 45s linear infinite;
-}
-
-.clock.medium {
-    width: 200px;
-    height: 200px;
-    top: 50%;
-    left: 10%;
-    animation: rotate 90s linear infinite;
-}
-
-.clock:nth-child(1) { top: 40%; left: 40%; }
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes rotateReverse {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(-360deg); }
+.clock-hand.second {
+  height: 60px; width: 2px;
+  background: #ff4444;
 }
